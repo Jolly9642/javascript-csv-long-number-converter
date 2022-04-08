@@ -1,0 +1,38 @@
+<html>
+<body>
+     <style type="text/css">
+        textarea{width: 750px;
+        height: 400px; }
+
+      </style>
+
+	   <p>Enter in a long number or block of long numbers:</p>
+	   <textarea id="nums" name="num" > enter here </textarea>
+	   <br>
+       <button type="button" onclick="pr2()" >Format</button>
+       <button type="button" onclick="copyt('out')">Copy Output</button>
+       <p id="out">OUTPUT </p>
+
+
+<script>
+function pr2() {
+var names = document.getElementById('nums').value.split('\n');
+document.getElementById("out").innerHTML = '';
+        for (i=0; i< names.length; i++) {
+                               document.getElementById("out").innerHTML += names[i] +"&nbsp;"  + "<br />";
+                        }
+}
+
+function copyt(id) {
+        var from = document.getElementById(id);
+        var range = document.createRange();
+        window.getSelection().removeAllRanges();
+        range.selectNode(from);
+        window.getSelection().addRange(range-1);
+        document.execCommand('copy');
+        window.getSelection().removeAllRanges();
+}
+</script>
+
+        </body>
+</html>
